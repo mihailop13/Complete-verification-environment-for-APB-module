@@ -49,7 +49,10 @@ Before connecting the UVC to the DUT, it is verified against itself: one agent a
 
 ### 2. UVC + DUT
 
-The master agent drives `apb_top`, while the monitor, scoreboard and coverage check its behavior.
+The master agent drives `apb_top`, while the monitor feeds two DUT-specific components developed for this environment:
+
+- **Scoreboard** (`apb_scoreboard`): contains a reference model of `apb_top` (address map, RO region, `STATUS`/`CTRL` registers) and automatically compares the observed behavior of the DUT (read data and `PSLVERR`) against the model's prediction for every monitored transaction.
+- **Coverage component**: a functional coverage model that crosses protocol states (operation, wait states, errors, byte strobes) with the DUT address map (memory regions, RO region, `STATUS`, `CTRL`, unmapped addresses). It measures whether, for example, an error access has been exercised in every region of the address map.
 
 - Top: `apb_uvc_tb_top`
 - Test: `test_apb_uvc_example`
@@ -85,7 +88,7 @@ A detailed description of the registers and behavior rules is in the README of t
 - Automatic checking in the scoreboard against a reference model
 - Protocol SVA assertions in the interface
 - Functional coverage that crosses protocol states with the device address map
-- Progress tracked through both functional coverage and code coverage
+- Progress tracked through both functional coverage
 
 ## Author
 
