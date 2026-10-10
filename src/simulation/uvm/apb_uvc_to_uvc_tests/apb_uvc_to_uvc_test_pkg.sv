@@ -1,0 +1,21 @@
+`ifndef APB_UVC_TO_UVC_TEST_PKG_SV
+`define APB_UVC_TO_UVC_TEST_PKG_SV
+
+package apb_uvc_to_uvc_test_pkg;
+
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+
+// import UVC's packages
+import apb_uvc_pkg::*;
+
+// import env package
+import apb_uvc_to_uvc_env_top_pkg::*;
+
+// include tests
+`include "test_apb_uvc_to_uvc_base.sv"
+`include "test_apb_uvc_to_uvc_example.sv"
+
+endpackage : apb_uvc_to_uvc_test_pkg
+
+`endif // APB_UVC_TO_UVC_TEST_PKG_SV

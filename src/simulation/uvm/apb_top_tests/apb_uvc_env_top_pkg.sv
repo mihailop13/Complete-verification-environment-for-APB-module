@@ -1,0 +1,20 @@
+`ifndef APB_UVC_ENV_TOP_PKG_SV
+`define APB_UVC_ENV_TOP_PKG_SV
+
+package apb_uvc_env_top_pkg;
+
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+
+// import UVC's packages
+import apb_uvc_pkg::*;
+
+// include env files
+`include "apb_uvc_cfg_top.sv"
+`include "apb_scoreboard.sv"
+`include "apb_coverage.sv"
+`include "apb_uvc_env_top.sv"
+
+endpackage : apb_uvc_env_top_pkg
+
+`endif // APB_UVC_ENV_TOP_PKG_SV
